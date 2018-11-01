@@ -1,0 +1,30 @@
+
+
+//******************结构体********************//
+
+
+//******************网络接口********************//
+message Login_C2S{
+	  required int32 code       = 1;			    //唯一码，客户端计算（guest:时间戳+加密，wx:openId,mobile:MD5(phoneNum)）
+    required string lType     = 2;		      //登录类型,guest,wx,mobile
+
+    //微信登录参数
+    optional string openId    		= 3;		  //微信登录 openid，区别用户
+ 	  optional string headImgUrl    = 4;		  //微信登录 openid
+  	optional string nickName   		= 5;		  //微信 昵称
+  	optional string unionId    		= 6;		  /用于区别 同一微信开发者账号下的用户
+  	optional string sex    			  = 7;		  //性别0男1女
+  	//手机号登录
+  	optional string phoneNum    	= 8;		  //手机号
+  	optional string yzm    	      = 9;			//验证码
+}
+
+message Login_S2C{
+	required int32 playerId = 1;			//玩家ID
+	required int32 gold = 2;				//金币
+	reuqired string headImgUrl =3
+	reuqired string nickName   		= 5;		//微信 昵称
+	optional string sex    			= 7;		//性别
+
+	required int32 roomId = 3;				//房间ID
+}
